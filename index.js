@@ -1,8 +1,9 @@
 const express = require ("express");
 const app = express();
-const PORT = 3000;
 
 app.use(express.json());
+
+const PORT = process.env.PORT || 3000;
 
 const helloRoutes = require("./routes/hello.route");
 const userRoutes = require("./routes/users.route");
@@ -15,5 +16,5 @@ app.use("/auth", authRoutes);
 app.use('/stocks', stocksRoutes);
 
 app.listen(PORT, () => {
-    console.log('Server running at http://localhost:${PORT}');
-})
+  console.log('Server running on port', PORT);
+});
