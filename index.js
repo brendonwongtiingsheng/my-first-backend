@@ -1,7 +1,13 @@
-const express = require ("express");
+const express = require('express');
+const cors = require('cors');
 const app = express();
 
 app.use(express.json());
+
+app.use(cors({
+  origin: 'http://localhost:5173', // React 前端
+}));
+
 
 const PORT = process.env.PORT || 3000;
 
